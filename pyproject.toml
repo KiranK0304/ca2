@@ -1,0 +1,13 @@
+[project]
+name = "noteproject"
+version = "0.1.0"
+description = "A minimal Django note app"
+requires-python = ">=3.10"
+dependencies = [
+    "asgiref==3.11.1",
+    "django==5.2.12",
+    "mysqlclient==2.2.8",
+    "python-dotenv==1.2.2",
+    "sqlparse==0.5.5",
+    "typing-extensions==4.15.0",
+]
