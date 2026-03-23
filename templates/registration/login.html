@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - Notes App{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2 style="margin-bottom: 1.5rem;">Welcome Back</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <div style="color: var(--danger-color); font-size: 0.85rem; margin-top: 0.25rem;">{{ field.errors.0 }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <div class="form-actions">
+            <button type="submit" class="btn" style="width: 100%;">Login</button>
+        </div>
+    </form>
+    <div style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem;">
+        Don't have an account? <a href="{% url 'register' %}" style="color: var(--primary-color);">Register here</a>
+    </div>
+</div>
+{% endblock %}
