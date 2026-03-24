@@ -11,14 +11,12 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import os
-from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Load environment variables from .env file
-load_dotenv(BASE_DIR / '.env')
+import pymysql
+pymysql.install_as_MySQLdb()
 
 
 # Quick-start development settings - unsuitable for production
@@ -81,11 +79,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME', 'testdb'),
-        'USER': os.getenv('DB_USER', 'admin'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'your_password'),
-        'HOST': os.getenv('DB_HOST', 'your-rds-endpoint'),
-        'PORT': os.getenv('DB_PORT', '3306'),
+        'NAME': 'testdb',  # change this on EC2 if needed
+        'USER': 'admin',
+        'PASSWORD': 'your_password_here',
+        'HOST': 'your-rds-endpoint',
+        'PORT': '3306',
     }
 }
 
