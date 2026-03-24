@@ -4,6 +4,14 @@
 
 This is a clean, minimalistic Note-taking application built with Django, using HTML/CSS templates for the frontend, and designed to easily connect to an external AWS RDS MySQL database.
 
+## Prerequisites
+
+To use the ultra-fast **uv** Python package manager (highly recommended), install it first:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+*(If you use `uv`, you can skip creating a venv and using `pip` entirely! Just use `uv sync` to install dependencies, and `uv run manage.py migrate` instead).*
+
 ## Step-by-Step Setup Guide
 
 ### Ubuntu Setup
